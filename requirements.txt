@@ -1,6 +1,6 @@
 streamlit
 pandas
-numpy
+# numpy
 matplotlib
 nltk
 wordnet
@@ -11,5 +11,9 @@ pip==23.3.1
 tensorflow==2.5.0
 tensorflow-datasets==4.5.0
 six==1.15.0
+numpy==1.19.2
+six==1.15.0
+tensorflow==2.5.0
+
 
 # Add any other required packages
