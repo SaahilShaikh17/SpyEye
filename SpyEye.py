@@ -9,25 +9,18 @@ from nltk.tokenize import word_tokenize
 import tensorflow as tf
 import tensorflow_datasets as tfds
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-from tensorflow.keras.optimizers import Adam
 
 # LSTM 
 max_len = 150
 
-# Define your custom optimizer (you need to implement this)
-class CustomAdam(Adam):
-    def __init__(self, learning_rate=0.001, **kwargs):
-        super().__init__(learning_rate, **kwargs)
 
-# Register the custom optimizer
-tf.keras.utils.get_custom_objects().update({'CustomAdam': CustomAdam})
 
 # Load the machine learning models
 model = joblib.load('naive_bayes_classifier.pkl')
 model_1 = joblib.load('random_forest_cl.pkl')
 
 # Load the Keras model with the custom optimizer
-model_2 = tf.keras.models.load_model('LSTM_retrained.h5', custom_objects={'CustomAdam': CustomAdam})
+model_2 = tf.keras.models.load_model('LSTM_retrained.h5')
 
 # Load the vectorizers
 vectorizer = joblib.load('vectorizer.pkl')

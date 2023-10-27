@@ -1,14 +1,14 @@
-pandas==1.3.3
+pandas
 
-streamlit==1.5.1
-nltk==3.6.5
-tensorflow==2.7.0
-tensorflow-datasets==4.4.0
+streamlit
+nltk
+tensorflow
+tensorflow-datasets
 
 wordnet
 stopwords
 scikit-learn==1.2.2
-joblib==1.1.1
+joblib
 pip==23.3.1
 
 # Add any other required packages
