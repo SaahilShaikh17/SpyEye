@@ -16,9 +16,9 @@ max_len = 150
 
 # Define your custom optimizer (you need to implement this)
 class CustomAdam(Adam):
-    # Implement your custom optimizer here
-       def __init__(self, learning_rate=0.001, **kwargs):
+    def __init__(self, learning_rate=0.001, **kwargs):
         super().__init__(learning_rate, **kwargs)
+
 # Register the custom optimizer
 tf.keras.utils.get_custom_objects().update({'CustomAdam': CustomAdam})
 
