@@ -13,10 +13,19 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 # LSTM 
 max_len = 150
 
+# Define your custom optimizer (you need to implement this)
+class CustomAdam(tf.keras.optimizers.Optimizer):
+    # Implement your custom optimizer here
+
+# Register the custom optimizer
+    tf.keras.utils.get_custom_objects().update({'CustomAdam': CustomAdam})
+
 # Load the machine learning models
 model = joblib.load('naive_bayes_classifier.pkl')
 model_1 = joblib.load('random_forest_cl.pkl')
-model_2 = tf.keras.models.load_model('LSTM_retrained.h5')
+
+# Load the Keras model with the custom optimizer
+model_2 = tf.keras.models.load_model('LSTM_retrained.h5', custom_objects={'CustomAdam': CustomAdam})
 
 # Load the vectorizers
 vectorizer = joblib.load('vectorizer.pkl')
